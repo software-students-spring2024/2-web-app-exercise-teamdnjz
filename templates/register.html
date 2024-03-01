@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>School Tasks Manager</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>School Tasks Manager</h1>
+      </header>
+      <main>
+        <h1>Login</h1>
+        <form method="POST" action="{{ url_for('register')}}"> 
+            <input type="text" id="username" name="username" placeholder="enter your username"/>
+            <br />
+            <input type="text" id="password" name="password"  placeholder="enter your password"/>
+            <br />
+            <input type="submit" value="Register" />
+        </form>
+      </main>
+      <footer>
+        <p>
+          &copy; 2024. Shared under the GPL3 license. Source code available at
+          <a
+            href="https://github.com/software-students-spring2024/2-web-app-exercise-teamdnjz.git"
+            >available on Github</a
+          >.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

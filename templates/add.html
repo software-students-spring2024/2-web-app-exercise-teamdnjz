@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block container %}
+<h1>Add a Task</h1>
+<form method="POST" action="{{ url_for('add_task')}}"> 
+    <input type="text" id="title" name="title" placeholder="Task title"/>
+    <br />
+    <input type="text" id="course" name="course" placeholder="Course"/>
+    <br />
+    <input type="text" id="date" name="date" placeholder="Date"/>
+    <br />
+    <input type="submit" value="Add" />
+</form>
+<!-- <p>{{task}}</p> -->
+{% endblock %}
