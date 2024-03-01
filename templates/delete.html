@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block container %}
+<h1>Edit Task</h1>
+<form method="POST" action="{{ url_for('delete_task', task_id=task._id, user_id=user._id)}}"> 
+    <input type="text" id="title" name="title" value="{{title}}" placeholder="Task title"/>
+    <br />
+    <input type="text" id="course" name="course" value="{{course}}" placeholder="Course"/>
+    <br />
+    <input type="text" id="date" name="date" value="{{date}}" placeholder="Date"/>
+    <br />
+    <input type="submit" value="Delete" />
+</form>
+<!-- <p>{{task}}</p> -->
+{% endblock %}
