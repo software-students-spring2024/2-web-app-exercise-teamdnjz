@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <h2>
+        Add Tasks
+    </h2>
+    <form method="POST" action= "{{url_for('add_task', user_id=user._id)}}">
+        <input type="text" id="title" name="title" placeholder="Task title"/>
+        <br />
+        <input type="text" id="course" name="course"  placeholder="Course"/>
+        <br />
+        <input type="text" id="date" name="date"  placeholder="Date"/>
+        <br />
+        <input type="submit" value="Add" />
+    </form>
+{% endblock %}
+
+

@@ -17,6 +17,28 @@ def home():
     tasks = user['tasks']
     return render_template('index.html', tasks=tasks, user=user)
 
+@app.route('/add/<user_id>')
+def add():
+    return render_template('add.html')
+
+@app.route('/add/<user_id>', methods=['POST'])
+def add_task(user_id):    
+    title = request.form["title"]
+    course = request.form["course"]
+    date = request.form["date"]
+    newtask = {
+        "title": title,
+        "course": course,
+        "date": date
+    }
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    tasks = user["tasks"]
+    tasks.append(newtask)
+    db.users.update_one({"_id": ObjectId(user_id)},
+    {"$set": {"tasks": tasks}})
+    return redirect(url_for("home"))
+
 @app.route('/edit/<user_id>/<task_id>')
 def edit(task_id, user_id):
     user = db.users.find_one({"_id": ObjectId(user_id)})
