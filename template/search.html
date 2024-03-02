@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Search Results</h2>
+
+    <section class="search-container">
+        <form action="{{ url_for('search') }}" method="GET">
+            <input type="text" name="query" placeholder="Search tasks...">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <section class="search-results">
+        <ul class="task-list">
+            {% for task in search_results %}
+                <li class="task-item">
+                    <span>{{ task.name }}</span>
+                    <div class="task-actions">
+                        <p class="styled-input">Title: {{ task.title }}</p>
+                        <p class="styled-input">Course: {{ task.course }}</p>
+                        <p class="styled-input">Due Date: {{ task.date }}</p>
+                        <a href="{{url_for('edit', task_id=task._id, user_id=user._id)}}">Edit</a>
+                        <a href="{{url_for('delete', task_id=task._id, user_id=user._id)}}">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Main page</a>
+{% endblock %}

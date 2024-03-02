@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Manager</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Task Manager</h1>
+        <nav>
+          <a href="{{ url_for('home')}}">Home</a>
+        </nav>
+      </header>
+      <main>{% block container %} {% endblock %}</main>
+      
+    </div>
+  </body>
+</html>
