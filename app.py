@@ -76,7 +76,7 @@ def delete_task(task_id, user_id):
 
 #search functions
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search(user_id):
     query = request.form.get('query', '')
     user = db.get_collection("users").find_one({"_id": ObjectId(user_id)})
@@ -92,6 +92,7 @@ def search_tasks(tasks, query):
         if query in task['title'].lower() or query in task['course'].lower():
             search_results.append(task)
     return search_results
+
 
 def find_index_by_id(task_list, id):
     for index, task in enumerate(task_list):
