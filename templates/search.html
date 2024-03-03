@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+
+{% block container %}
+<h1>Add a Task</h1>
+<form method="POST" action="{{ url_for('search_tasks')}}"> 
+    <input type="text" id="course" name="course" placeholder="Please Enter a Course">
+    <input type="submit" value="Search">
+</form>
+<!-- <p>{{task}}</p> -->
+{% endblock %}

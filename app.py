@@ -107,6 +107,23 @@ def add_task():
             {"$push": {"tasks": new_task}}
         )
         return redirect(url_for('home'))
+    
+
+#Search Tasks
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
+# Search Tasks by Course Name
+@app.route('/search', methods=['POST'])
+@login_required
+def search_tasks():
+    if request.method == 'POST':
+        course_name = request.form['course']
+        user_id = ObjectId(current_user.id)
+        user = db.users.find_one({'_id': user_id})
+        tasks = [task for task in user['tasks'] if task['course'] == course_name]
+        return render_template('search_results.html', tasks=tasks, user=user, course_name=course_name)
 
 
 

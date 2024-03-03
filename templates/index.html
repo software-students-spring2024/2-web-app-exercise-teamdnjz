@@ -2,6 +2,7 @@
 
 {% block container %}
     <a href="{{url_for('add')}}"><button class="styled-input">Add a Task</button></a>
+    <a href="{{url_for('search')}}"><button class="styled-input">Search Tasks</button></a>
     {% for task in tasks %}
             <div>
               <p class="styled-input">Title: {{ task.title }}</p>
