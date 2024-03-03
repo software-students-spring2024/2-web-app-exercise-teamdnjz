@@ -2,14 +2,13 @@
 
 {% block container %}
 <h1>Delete Task</h1>
+<p>
+    Title: {{title}}<br>
+    Course: {{course}}<br>
+    Date: {{date}}<br>
+</p>
 <form method="POST" action="{{ url_for('delete_task', task_id=task._id, user_id=user._id)}}"> 
-    <input type="text" id="title" name="title" value="{{title}}" placeholder="Task title"/>
-    <br />
-    <input type="text" id="course" name="course" value="{{course}}" placeholder="Course"/>
-    <br />
-    <input type="date" id="date" name="date" value="{{date}}" placeholder="Date"/>
-    <br />
-    <input type="submit" value="Delete" />
+    <input type="submit" value="Confirm Deletion of Task" />
 </form>
 <!-- <p>{{task}}</p> -->
 {% endblock %}

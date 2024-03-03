@@ -48,7 +48,7 @@ def login():
             login_user(User(user_id))
             return redirect(url_for('home'))
         else:
-            return 'Invalid username or password'
+            return render_template('login.html', error = "Incorrect password entered")
     return render_template('login.html')
 
 # Register
