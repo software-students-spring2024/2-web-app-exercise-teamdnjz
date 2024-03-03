@@ -4,6 +4,7 @@ import pymongo
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import datetime
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -78,7 +79,7 @@ def delete_task(task_id, user_id):
 
 @app.route('/search', methods=['GET'])
 def search(user_id):
-    query = request.form.get('query', '')
+    query = request.args.get('query', '')
     user = db.get_collection("users").find_one({"_id": ObjectId(user_id)})
     tasks = user['tasks']
     search_results = search_tasks (tasks, query)
@@ -92,14 +93,6 @@ def search_tasks(tasks, query):
         if query in task['title'].lower() or query in task['course'].lower():
             search_results.append(task)
     return search_results
-
-
-def find_index_by_id(task_list, id):
-    for index, task in enumerate(task_list):
-        if task["_id"] == id:
-            return index
-    return -1
-
 
 
 if __name__ == '__main__':

@@ -2,22 +2,26 @@
 
 {% block container %}
 
-    <h2>Tasks</h2>
-    <section class="tasks">=
-        <form action="{{ url_for('search') }}" method="GET">
-            <button type="submit">Search</button>
-        </form>
-
+    <h2>My Tasks</h2>
+    <section class="tasks">
         <ul class="task-list">
             {% for task in tasks %}
             <li class="task-item">
                 <span>{{ task.name }}</span>
-                <div class="task-actions">
-                    <p class="styled-input">Title: {{ task.title }}</p>
-                    <p class="styled-input">Course: {{ task.course }}</p>
-                    <p class="styled-input">Due Date: {{ task.date }}</p>
-                    <a href="{{url_for('edit', task_id=task._id, user_id=user._id)}}">Edit</a>
-                    <a href="{{url_for('delete', task_id=task._id, user_id=user._id)}}">Delete</a>
+                <div class="task-container">
+                    <input type="checkbox" class="task-checkbox" id="task{{ task._id }}">
+                    <div class="task-details">
+                        <p class="styled-input">Title: {{ task.title }}</p>
+                        <p class="styled-input">Course: {{ task.course }}</p>
+                        <p class="styled-input">Due Date: {{ task.date }}</p>
+                        <p class="urgent-due">
+                            {% if (task.date - current_date_time).days < 3 %}
+                                Due in 3 days
+                            {% endif %}
+                        </p>
+                        <a href="{{url_for('edit', task_id=task._id, user_id=user._id)}}" class="button">Edit</a>
+                        <a href="{{url_for('delete', task_id=task._id, user_id=user._id)}}" class="button">Delete</a>
+                    </div>
                 </div>
             </li>
             {% endfor %}
