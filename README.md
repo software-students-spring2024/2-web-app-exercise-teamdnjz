@@ -8,12 +8,12 @@ Our task manager app aims to seamlessly organize and track assignments, quizzes,
 
 ## User stories
 
-As a student, I want to log in to my own task manager and see all my tasks.
-As a student, I want to be able to see all of my upcoming assignments and assessments so that I am sure I am prepared for anything upcoming.
-As a student, I want to be able to add new tasks so that I can track new upcoming things.
-As a student, I want to be able to edit my task list so that I can change details on tasks if something were to change (extensions, etc.)
-As a student, I want to be able to delete a task from my task list after i finished it.
-As a student, I want to search for tasks with certain keywords to see related information
+- As a student, I want to log in to my own task manager and see all my tasks.
+- As a student, I want to be able to see all of my upcoming assignments and assessments so that I am sure I am prepared for anything upcoming.
+- As a student, I want to be able to add new tasks so that I can track new upcoming things.
+- As a student, I want to be able to edit my task list so that I can change details on tasks if something were to change (extensions, etc.)
+- As a student, I want to be able to delete a task from my task list after i finished it.
+- As a student, I want to search for tasks for a certain course to see related information
 
 
 
