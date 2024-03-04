@@ -3,13 +3,18 @@
 {% block container %}
 <h1>Add a Task</h1>
 <form method="POST" action="{{ url_for('add_task')}}"> 
-    <input type="text" id="title" name="title" placeholder="Task title"/>
-    <br />
-    <input type="text" id="course" name="course" placeholder="Course"/>
-    <br />
-    <input type="date" id="date" name="date" placeholder="Date"/>
-    <br />
-    <input type="submit" value="Add" />
+    <div class="input-container">
+        <label for="username" class = "styled-input">Task title: </label>
+        <input type="text" id="title" name="title" placeholder="Task title" class="add-input"/>
+        <br />
+        <label for="username" class = "styled-input">Course: </label>
+        <input type="text" id="course" name="course" placeholder="Course" class="add-input"/>
+        <br />
+        <label for="username" class = "styled-input">Date: </label>
+        <input type="date" id="date" name="date" placeholder="Date" class="add-input"/>
+        <br />
+        <input type="submit" value="Add" class = "button" />
+    </div>
 </form>
-<!-- <p>{{task}}</p> -->
+
 {% endblock %}

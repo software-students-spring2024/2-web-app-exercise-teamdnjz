@@ -10,16 +10,18 @@
   <body>
     <div class="container">
       <header>
-        <h1>School Tasks Manager</h1>
+        <h1> &#x1F4DD; School Tasks Manager</h1>
       </header>
       <main>
         <h1>Login</h1>
-        <form method="POST" action="{{ url_for('login')}}"> 
-            <input type="text" id="username" name="username" placeholder="enter your username"/>
+        <form class = "input-container" method="POST" action="{{ url_for('login')}}"> 
+            <label for="username" class = "styled-input">Username: </label>
+            <input type="text" id="username" name="username" placeholder="enter your username" class="add-input"/>
             <br />
-            <input type="text" id="password" name="password"  placeholder="enter your password"/>
+            <label for="username" class = "styled-input">Password: </label>
+            <input type="text" id="password" name="password"  placeholder="enter your password" class="add-input"/>
             <br />
-            <input type="submit" value="Login" />
+            <input type="submit" value="Login" class = "button"/>
         </form>
         <p style="color: red;">{{ error }}</p>
       </main>
